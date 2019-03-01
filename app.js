@@ -5,7 +5,7 @@ app.use(express.urlencoded({ extended: false }));
 global.loginMessage = "Login";
 
 app.get('/', (req, res) => {
-    let loginPage = `
+    var loginPage = `
             <html><head><title>Login</title></head>
             <body>
                 <h3>${global.loginMessage}</h3>
@@ -47,14 +47,14 @@ app.listen(port, () => {
 });
 
 app.post('/stuff',function(req, res){
-	  let url = req.body.line;
-	  if(req.body.cs == '/cs'){
-  res.redirect('http://cs.uco.edu');
-	  } 
-	  else if(req.body.cs == '/cs3'){
-  res.redirect('http://cs3.uco.edu');
-	  }
-  else if(req.body.cs == '/url'){
-  res.redirect('http://' + url);
-	  }
+	let url = req.body.line;
+	if(req.body.cs == '/cs'){
+             	res.redirect('http://cs.uco.edu');
+	} 
+	else if(req.body.cs == '/cs3'){
+             	res.redirect('http://cs3.uco.edu');
+	}
+        else if(req.body.cs == '/url'){
+        	res.redirect('http://' + url);
+	}
 });
